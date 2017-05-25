@@ -14,8 +14,8 @@ int main( int argc, char** argv ) {
     long lineNr = 1;
     try {
         while ( getline( cin, line ).good( ) ) {
-            formatter.format( line, out );
-            cout << out << endl;
+            formatter.format( line );
+            cout << line << endl;
             ++lineNr;
         }
     } catch ( const exception& ex ) {

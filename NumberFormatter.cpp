@@ -28,19 +28,20 @@ void PhoneNoFormatter::validate( string& s ) {
     }
 }
 
-void PhoneNoFormatter::format( const string& input, string& output ) {
-    output = input;
+void PhoneNoFormatter::format( string& line ) {
+    if ( line.empty( ) )
+        return;
     
-    validate( output );
+    validate( line );
     
-    if ( output.length( ) == 9)
-        output.insert( 0, "+420" );
-    if ( output.length( ) == 14 )
-        output.replace( 0, 2, "+" );    
-    else if ( output.length( ) != 13 )
-        throw logic_error( string("Invalid length: ").append( to_string(output.length( )) ) );
+    if ( line.length( ) == 9 )
+        line.insert( 0, "+420" );
+    if ( line.length( ) == 14 )
+        line.replace( 0, 2, "+" );
+    else if ( line.length( ) != 13 )
+        throw logic_error( string("Invalid length: ").append( to_string(line.length( )) ) );
     
-    for ( uint pos = output.length( ) - 9; pos < output.length( ); pos += 4 ) {
-        output.insert( pos, " " );
+    for ( uint pos = line.length( ) - 9; pos < line.length( ); pos += 4 ) {
+        line.insert( pos, " " );
     }
 } 

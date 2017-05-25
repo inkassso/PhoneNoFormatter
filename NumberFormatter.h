@@ -6,7 +6,7 @@ class PhoneNoFormatter {
 public:
     PhoneNoFormatter( );
     virtual ~PhoneNoFormatter( );
-    void format( const std::string& input, std::string& output );
+    void format( std::string& line );
     
 private:
     void validate( std::string& s );
